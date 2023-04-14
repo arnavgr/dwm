@@ -58,11 +58,20 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_f,        spawn,          SHCMD("firefox") },
+	{ 0,             XK_F12,        spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%") },
+	{ 0,             XK_F11,        spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%") },
+	{ 0,             XK_F10,        spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+	{ 0,             XK_F5,        spawn,          SHCMD("brightnessctl set 1%-") },
+	{ 0,             XK_F6,        spawn,          SHCMD("brightnessctl set +1%") },
+	{ 0,             XK_F7,        spawn,          SHCMD("~/scripts/mirrorscreen.sh") },
+	{ 0,             XK_F8,        spawn,          SHCMD("~/scripts/splitscreen.sh") },
+	{ 0,             XK_F9,        spawn,          SHCMD("~/scripts/singlescreen.sh") },
+	{ MODKEY,                       XK_p,        spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
