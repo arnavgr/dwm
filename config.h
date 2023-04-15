@@ -7,6 +7,8 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Firacode Nerd Font:size=12" };
 static const char dmenufont[]       = "Firacode Nerd Font:size=10";
+static unsigned int baralpha        = 0xd0;
+static unsigned int borderalpha     = OPAQUE;
 static const char col_gray1[]       = "#282a36";
 static const char col_gray2[]       = "#44475a";
 static const char col_gray3[]       = "#f8f8f2";
@@ -62,7 +64,7 @@ static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_f,        spawn,          SHCMD("firefox") },
+	{ MODKEY|ShiftMask,             XK_b,        spawn,          SHCMD("firefox") },
 	{ 0,             XK_F12,        spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%") },
 	{ 0,             XK_F11,        spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%") },
 	{ 0,             XK_F10,        spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
@@ -88,6 +90,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
