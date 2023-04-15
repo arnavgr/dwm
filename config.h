@@ -6,7 +6,7 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Firacode Nerd Font:size=12" };
-static const char dmenufont[]       = "Firacode Nerd Font:size=10";
+static const char dmenufont[]       = "Firacode Nerd Font:size=12";
 static unsigned int baralpha        = 0xd0;
 static unsigned int borderalpha     = OPAQUE;
 static const char col_gray1[]       = "#282a36";
