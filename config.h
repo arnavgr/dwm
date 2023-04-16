@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -12,8 +12,8 @@ static unsigned int borderalpha     = OPAQUE;
 static const char col_gray1[]       = "#282a36";
 static const char col_gray2[]       = "#44475a";
 static const char col_gray3[]       = "#f8f8f2";
-static const char col_gray4[]       = "#282a36";
-static const char col_cyan[]        = "#bd93f9";
+static const char col_gray4[]       = "#f8f8f2";
+static const char col_cyan[]        = "#6272a4";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -55,7 +55,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/bash", "-c", cmd, NULL } }
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -64,16 +64,18 @@ static const char *termcmd[]  = { "st", "-e", "tmux", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_b,        spawn,          SHCMD("firefox") },
-	{ 0,             XK_F12,        spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%") },
-	{ 0,             XK_F11,        spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%") },
-	{ 0,             XK_F10,        spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
-	{ 0,             XK_F5,        spawn,          SHCMD("brightnessctl set 1%-") },
-	{ 0,             XK_F6,        spawn,          SHCMD("brightnessctl set +1%") },
-	{ 0,             XK_F7,        spawn,          SHCMD("~/scripts/mirrorscreen.sh") },
-	{ 0,             XK_F8,        spawn,          SHCMD("~/scripts/splitscreen.sh") },
-	{ 0,             XK_F9,        spawn,          SHCMD("~/scripts/singlescreen.sh") },
-	{ MODKEY,                       XK_p,        spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("firefox") },
+	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("~/bin/powermenu") },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("st -e ranger") },
+	{ 0,                            XK_F12,    spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%") },
+	{ 0,                            XK_F11,    spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%") },
+	{ 0,                            XK_F10,    spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+	{ 0,                            XK_F5,     spawn,          SHCMD("brightnessctl set 1%-") },
+	{ 0,                            XK_F6,     spawn,          SHCMD("brightnessctl set +1%") },
+	{ 0,                            XK_F7,     spawn,          SHCMD("~/bin/mirrorscreen") },
+	{ 0,                            XK_F8,     spawn,          SHCMD("~/bin/splitscreen") },
+	{ 0,                            XK_F9,     spawn,          SHCMD("~/bin/singlescreen") },
+	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
@@ -84,13 +86,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY,                       XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_space,  setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
+	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -106,7 +106,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY,                       XK_q,      quit,           {0} },
 };
 
 /* button definitions */
