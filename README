@@ -50,4 +50,6 @@ and (re)compiling the source code.
 patches added:
 actualfullscreen
 alpha
+moveresize
 preserveonrestart
+swallow
