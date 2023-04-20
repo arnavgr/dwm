@@ -68,6 +68,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("firefox") },
+	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("networkmanager_dmenu") },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("~/bin/powermenu") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("~/bin/screenshot") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("st -e ranger") },
@@ -76,9 +77,11 @@ static const Key keys[] = {
 	{ 0,                            XK_F10,    spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
 	{ 0,                            XK_F5,     spawn,          SHCMD("brightnessctl set 1%-") },
 	{ 0,                            XK_F6,     spawn,          SHCMD("brightnessctl set +1%") },
-	{ 0,                            XK_F7,     spawn,          SHCMD("~/bin/mirrorscreen") },
-	{ 0,                            XK_F8,     spawn,          SHCMD("~/bin/splitscreen") },
-	{ 0,                            XK_F9,     spawn,          SHCMD("~/bin/singlescreen") },
+	{ 0,                            XK_F4,     spawn,          SHCMD("brightnessctl --device 'asus::kbd_backlight' set +10%") },
+	{ 0,                            XK_F3,     spawn,          SHCMD("brightnessctl --device 'asus::kbd_backlight' set 10%-") },
+	{ 0,                            XK_F7,     spawn,          SHCMD("~/bin/singlescreen") },
+	{ 0,                            XK_F8,     spawn,          SHCMD("~/bin/mirrorscreen") },
+	{ 0,                            XK_F9,     spawn,          SHCMD("~/bin/splitscreen") },
 	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
