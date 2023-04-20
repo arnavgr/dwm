@@ -73,6 +73,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("~/bin/screenshot") },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          SHCMD("st -e ranger") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("xdotool mousemove 2000 1200") },
+	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("xdotool mousemove 0 1200") },
 	{ 0,                            XK_F12,    spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%") },
 	{ 0,                            XK_F11,    spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%") },
 	{ 0,                            XK_F10,    spawn,          SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
