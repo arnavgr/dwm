@@ -53,3 +53,8 @@ alpha
 moveresize
 preserveonrestart
 swallow
+alwayscenter
+scratchpads
+hide vacant tags
+notitle
+gaplessgrid
