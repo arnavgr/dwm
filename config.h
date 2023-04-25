@@ -27,12 +27,10 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
-	{"keepassxc",   spcmd3},
 };
 
 /* tagging */
@@ -88,7 +86,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("firefox") },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("networkmanager_dmenu") },
-	{ MODKEY|ShiftMask,             XK_q,      spawn,          SHCMD("~/bin/powermenu") },
+	{ MODKEY,                       XK_q,      spawn,          SHCMD("~/bin/powermenu") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("~/bin/screenshot") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("xdotool mousemove 2000 1200") },
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("xdotool mousemove 0 1200") },
@@ -102,12 +100,12 @@ static const Key keys[] = {
 	{ 0,                            XK_F7,     spawn,          SHCMD("~/bin/hdmionly") },
 	{ 0,                            XK_F8,     spawn,          SHCMD("~/bin/mirrorscreen") },
 	{ 0,                            XK_F9,     spawn,          SHCMD("~/bin/splitscreen") },
-	{ MODKEY|ShiftMask,             XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                       XK_v,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
@@ -152,7 +150,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY,                       XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
 /* button definitions */
