@@ -48,7 +48,7 @@ static const Rule rules[] = {
 	{ NULL,		  "spterm",	 NULL,		       SPTAG(0),	1,			 -1 },
 	{ NULL,		  "spfm",		 NULL,		       SPTAG(1),	1,			 -1 },
 	{ NULL,		  "keepassxc",	NULL,		     SPTAG(2),	0,			 -1 },
-  { NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+  	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -80,12 +80,12 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "st", "-e", "zsh", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("firefox") },
-	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("networkmanager_dmenu") },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("run-as-spot chromium") },
+	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("connectwizard") },
 	{ MODKEY,                       XK_q,      spawn,          SHCMD("~/bin/powermenu") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("~/bin/screenshot") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("xdotool mousemove 2000 1200") },
@@ -100,7 +100,7 @@ static const Key keys[] = {
 	{ 0,                            XK_F7,     spawn,          SHCMD("~/bin/hdmionly") },
 	{ 0,                            XK_F8,     spawn,          SHCMD("~/bin/mirrorscreen") },
 	{ 0,                            XK_F9,     spawn,          SHCMD("~/bin/splitscreen") },
-	{ 0,                            XK_Escape, spawn,          SHCMD("dunstctl close-all") },
+	{ 0,                            XK_Delete, spawn,          SHCMD("dunstctl close-all") },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },

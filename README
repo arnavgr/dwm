@@ -58,3 +58,53 @@ scratchpads
 hide vacant tags
 notitle
 gaplessgrid
+
+### Keybindings
+
+- `MOD+Shift+b`: Launch Chromium using spot(puppy linux).
+- `MOD+Shift+n`: internet wizard for puppy linux.
+- `MOD+q`: Open the power menu (shutdown, restart, etc.).
+- `MOD+Shift+s`: Take a screenshot.
+- `MOD+x`: Move mouse to (2000, 1200).
+- `MOD+Shift+x`: Move mouse to (0, 1200).
+- `F12`: Increase audio volume by 1%.
+- `F11`: Decrease audio volume by 1%.
+- `F10`: Toggle audio mute.
+- `F5`: Decrease screen brightness by 1%.
+- `F6`: Increase screen brightness by 1%.
+- `F4`: Increase keyboard backlight by 10%.
+- `F3`: Decrease keyboard backlight by 10%.
+- `F7`: Run HDMI output script.
+- `F8`: Run screen mirroring script.
+- `F9`: Run split screen script.
+- `Delete`: Close all dunst notifications.
+- `MOD+d`: dmenu.
+- `MOD+Shift+Return`: Open`st` with `zsh`.
+- `MOD+b`: Toggle bar visibility.
+- `MOD+j`: Focus next window.
+- `MOD+k`: Focus previous window.
+- `MOD+v`: Increase master window count.
+- `MOD+Shift+d`: Decrease master window count.
+- `MOD+h`: Decrease master area size.
+- `MOD+l`: Increase master area size.
+- `MOD+Return`: Zoom into the focused window.
+- `MOD+Tab`: Switch between the last two windows.
+- `MOD+c`: Close the focused window.
+- `MOD+t`: Switch to tiled layout.
+- `MOD+space`: Switch to floating layout.
+- `MOD+m`: Switch to monocle layout.
+- `MOD+g`: Switch to gapless grid layout.
+- `MOD+f`: Toggle fullscreen mode.
+- `MOD+Arrow keys`: Resize/move window (up/down/left/right).
+- `MOD+Shift+Arrow keys`: Resize window (height/width).
+- `MOD+Control+Arrow keys`: Resize window to screen edges.
+- `MOD+0`: View all tags.
+- `MOD+Shift+0`: Tag all windows.
+- `MOD+comma/period`: Switch between monitors.
+- `MOD+Shift+comma/period`: Move window between monitors.
+- `MOD+s`: Toggle the first scratchpad (`spterm`).
+- `MOD+r`: Toggle the second scratchpad (`spranger`).
+- `MOD+1 to MOD+9`: Switch to corresponding tag.
+- `MOD+Shift+1 to MOD+Shift+9`: Move window to corresponding tag.
+- `MOD+Shift+q`: Quit DWM.
+
