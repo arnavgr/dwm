@@ -25,8 +25,8 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
-const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", "-e", "zsh", NULL };
+const char *spcmd2[] = {"st", "-n", "spfm", "-g", "120x34", "-e", "zsh", "-c", "ranger", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
@@ -86,8 +86,8 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_b,      spawn,          SHCMD("run-as-spot chromium") },
 	{ MODKEY|ShiftMask,             XK_n,      spawn,          SHCMD("connectwizard") },
-	{ MODKEY,                       XK_q,      spawn,          SHCMD("~/bin/powermenu") },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("~/bin/screenshot") },
+	{ MODKEY,                       XK_q,      spawn,          SHCMD("~/.local/bin/powermenu") },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("~/.local/bin/screenshot") },
 	{ MODKEY,                       XK_x,      spawn,          SHCMD("xdotool mousemove 2000 1200") },
 	{ MODKEY|ShiftMask,             XK_x,      spawn,          SHCMD("xdotool mousemove 0 1200") },
 	{ 0,                            XK_F12,    spawn,          SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%") },
